@@ -62,3 +62,7 @@ python predict_discogan.py \
 ## Results
 <p align="center">
 <img src="assets/fig2.png" width="700px"/></p>
+<p align="center">
+<img src="assets/fig3.png" width="700px"/></p>
+
+
