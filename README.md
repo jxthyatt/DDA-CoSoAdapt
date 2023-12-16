@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ```
 
 ### Example commands
-To train DisCoGAN between "GTA5" domain and "Cityscapes" domain, run the following script:
+To train DisCoGAN between [GTA5](https://download.visinf.tu-darmstadt.de/data/from_games/) domain and [Cityscapes](https://www.cityscapes-dataset.com/) domain, run the following script:
 ```
 python train_discogan.py \
 --name gta2cty \
