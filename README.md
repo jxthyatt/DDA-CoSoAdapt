@@ -65,4 +65,6 @@ python predict_discogan.py \
 <p align="center">
 <img src="assets/fig3.png" width="700px"/></p>
 
+## Acknowledgments
 
+Our implementation is mainly based on [DRIT](https://github.com/HsinYingLee/DRIT), [DRIT-HighResolution](https://github.com/hytseng0509/DRIT_hr) and [CoOp](https://github.com/KaiyangZhou/CoOp). We thank to their clean codebases.
