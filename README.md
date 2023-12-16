@@ -46,6 +46,16 @@ python train_discogan.py \
 --gpu 0
 ```
 
-
-
+To test DisCoGAN between [GTA5](https://download.visinf.tu-darmstadt.de/data/from_games/) domain and [Cityscapes](https://www.cityscapes-dataset.com/) domain, run the following script:
+```
+python predict_discogan.py \
+--name gta2cty \
+--dataroot ./data/gta2cty \
+--phase test \
+--resume ./results/gta2cty/epoch_400.pth
+--result_dir ./predict \
+--resize_size 512 \
+--num_domains 2 \
+--gpu 0
+```
 
