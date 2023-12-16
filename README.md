@@ -12,3 +12,16 @@ This work studies a privacy-preserving problem definition named decentralized do
 
 ### Q&A 2: Why is the contribution significant?
 This work achieves privacy-preserving knowledge transfer in perspectives of federated domain adaptation and source domain-free adaptation. Impacts are listed by: (1) Concerning challenges of privacy and efficiency, federated self-weighted learning conquers uneven convergence and obtains lightweight communication. (2) Regarding limitations of fine-granularity and compactness, DisCoGAN transfers domain-specific attribute and preserves domain-invariant content, meanwhile ProRA aligns joint distribution and learns compact structure. (3) CoSoAdapt contributes a state- of-the-art model for DDA community, which reaches 55.26% mIoU on SFSU benchmark.
+
+## Usage
+
+### Dependencies
+Clone this repo and install required packages:
+```
+git clone https://github.com/Picsart-AI-Research/IPL-Zero-Shot-Generative-Model-Adaptation.git
+conda create -n ipl python=3.8
+conda activate ipl
+pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
+pip install ftfy regex tqdm ninja
+pip install git+https://github.com/openai/CLIP.git
+```
