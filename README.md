@@ -59,3 +59,6 @@ python predict_discogan.py \
 --gpu 0
 ```
 
+## Results
+<p align="center">
+<img src="assets/fig2.png" width="700px"/></p>
