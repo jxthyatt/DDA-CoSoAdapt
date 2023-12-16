@@ -67,4 +67,4 @@ python predict_discogan.py \
 
 ## Acknowledgments
 
-Our implementation is mainly based on [DRIT](https://github.com/HsinYingLee/DRIT), [DRIT-HighResolution](https://github.com/hytseng0509/DRIT_hr) and [CoOp](https://github.com/KaiyangZhou/CoOp). We thank to their clean codebases.
+Our implementation is mainly based on [DRIT](https://github.com/HsinYingLee/DRIT), [DRIT-HighResolution](https://github.com/hytseng0509/DRIT_hr) and [ProDA](https://github.com/microsoft/ProDA). We thank to their clean codebases.
