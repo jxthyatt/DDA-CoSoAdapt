@@ -24,3 +24,28 @@ conda activate cosoadapt
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirements.txt
 ```
+
+### Example commands
+To train DisCoGAN between "GTA5" domain and "Cityscapes" domain, run the following script:
+```
+python train_discogan.py \
+--name gta2cty \
+--dataroot ./data/gta2cty \
+--phase train \
+--batch_size 16 \
+--resize_size 512 \
+--n_ep 400 \
+--lambda_rec 10 \
+--lambda_cls 1.0 \
+--lambda_cls_G 5.0 \
+--lambda_cl_attr 1.0 \
+--lambda_cl_cont 1.0 \
+--num_domains 2 \
+--img_save_freq 10 \
+--model_save_freq 20 \
+--gpu 0
+```
+
+
+
+
