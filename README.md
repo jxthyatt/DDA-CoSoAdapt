@@ -18,10 +18,8 @@ This work achieves privacy-preserving knowledge transfer in perspectives of fede
 ### Dependencies
 Clone this repo and install required packages:
 ```
-git clone https://github.com/Picsart-AI-Research/IPL-Zero-Shot-Generative-Model-Adaptation.git
-conda create -n ipl python=3.8
-conda activate ipl
+git clone https://github.com/jxthyatt/DDA-CoSoAdapt.git
+conda create -n cosoadapt python=3.8
+conda activate cosoadapt
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
-pip install ftfy regex tqdm ninja
-pip install git+https://github.com/openai/CLIP.git
 ```
