@@ -88,6 +88,7 @@ python generate_pseudo_label.py \
 ## Target adversarial learning
 python train_prora.py \
 --name gta2ctylabv2_softadv \
+--stage stage1 \
 --used_save_pseudo \
 --ema \
 --proto_rectify \
