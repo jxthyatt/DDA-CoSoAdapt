@@ -59,6 +59,76 @@ python predict_discogan.py \
 --gpu 0
 ```
 
+To train ProRA between [GTA5](https://download.visinf.tu-darmstadt.de/data/from_games/) domain and [Cityscapes](https://www.cityscapes-dataset.com/) domain, run the following script:
+```
+##Preliminary (source-only training)
+python train_prora.py \
+--name gta2ctylabv2_src \
+--model_name deeplabv2 \
+--stage source_only \
+--freeze_bn \
+--gan Vanilla \
+--lr 2.5e-4 \
+--adv 0.01 \
+--src_rootpath datasets/GTA5
+
+##Preliminary (prototypical knowledge)
+python gen_proto.py \
+--resume_path ./logs/gta2ctylabv2_src/from_gta5_to_cityscapes_on_deeplabv2_best_model.pkl \
+--tgt_rootpath datasets/cityscapes
+
+##Preliminary (soft adversarial label)
+python generate_pseudo_label.py \
+--name gta2ctylabv2_soft \
+--soft \
+--resume_path ./logs/gta2ctylabv2_src/from_gta5_to_cityscapes_on_deeplabv2_best_model.pkl \
+--no_droplast \
+--tgt_rootpath datasets/cityscapes
+
+##Target adversarial learning
+python train_prora.py \
+--name gta2ctylabv2_softadv \
+--used_save_pseudo \
+--ema \
+--proto_rectify \
+--moving_prototype \
+--path_soft Pseudo/gta2ctylabv2_soft \
+--resume_path ./logs/gta2ctylabv2_src/from_gta5_to_cityscapes_on_deeplabv2_best_model.pkl \
+--proto_consistW 10 \
+--rce \
+--regular_w 0 \
+--tgt_rootpath datasets/cityscapes
+
+##Target structure denoising
+python train_prora.py \
+--name gta2ctylabv2_denoise \
+--stage stage2 \
+--used_save_pseudo \
+--path_LP Pseudo/gta2ctylabv2_softadv \
+--resume_path ./logs/gta2ctylabv2_softadv/from_gta5_to_cityscapes_on_deeplabv2_best_model.pkl \
+--proto_pseudo 1 \
+--distill 1 \
+--regular_w 10 \
+--finetune \
+--lr 1e-4 \
+--tgt_rootpath datasets/cityscapes
+
+##Target entropy minimization
+python train_prora.py \
+--name gta2ctylabv2_entropy \
+--stage stage3 \
+--used_save_pseudo \
+--path_LP Pseudo/gta2ctylabv2_denoise \
+--resume_path ./logs/gta2ctylabv2_denoise/from_gta5_to_cityscapes_on_deeplabv2_best_model.pkl \
+--proto_pseudo 1 \
+--distill 1 \
+--finetune \
+--lr 6e-4 \
+--student_init simclr \
+--ema_bn \
+--tgt_rootpath datasets/cityscapes
+```
+
 ## Results
 <p align="center">
 <img src="assets/fig2.png" width="700px"/></p>
