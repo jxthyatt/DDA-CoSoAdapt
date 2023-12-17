@@ -61,7 +61,7 @@ python predict_discogan.py \
 
 To train ProRA between [GTA5](https://download.visinf.tu-darmstadt.de/data/from_games/) domain and [Cityscapes](https://www.cityscapes-dataset.com/) domain, run the following script:
 ```
-##Preliminary (source-only training)
+## Preliminary (source-only training)
 python train_prora.py \
 --name gta2ctylabv2_src \
 --model_name deeplabv2 \
@@ -72,12 +72,12 @@ python train_prora.py \
 --adv 0.01 \
 --src_rootpath datasets/GTA5
 
-##Preliminary (prototypical knowledge)
+## Preliminary (prototypical knowledge)
 python gen_proto.py \
 --resume_path ./logs/gta2ctylabv2_src/from_gta5_to_cityscapes_on_deeplabv2_best_model.pkl \
 --tgt_rootpath datasets/cityscapes
 
-##Preliminary (soft adversarial label)
+## Preliminary (soft adversarial label)
 python generate_pseudo_label.py \
 --name gta2ctylabv2_soft \
 --soft \
@@ -85,7 +85,7 @@ python generate_pseudo_label.py \
 --no_droplast \
 --tgt_rootpath datasets/cityscapes
 
-##Target adversarial learning
+## Target adversarial learning
 python train_prora.py \
 --name gta2ctylabv2_softadv \
 --used_save_pseudo \
@@ -99,7 +99,7 @@ python train_prora.py \
 --regular_w 0 \
 --tgt_rootpath datasets/cityscapes
 
-##Target structure denoising
+## Target structure denoising
 python train_prora.py \
 --name gta2ctylabv2_denoise \
 --stage stage2 \
@@ -113,7 +113,7 @@ python train_prora.py \
 --lr 1e-4 \
 --tgt_rootpath datasets/cityscapes
 
-##Target entropy minimization
+## Target entropy minimization
 python train_prora.py \
 --name gta2ctylabv2_entropy \
 --stage stage3 \
@@ -127,6 +127,14 @@ python train_prora.py \
 --student_init simclr \
 --ema_bn \
 --tgt_rootpath datasets/cityscapes
+```
+
+To test ProRA between [GTA5](https://download.visinf.tu-darmstadt.de/data/from_games/) domain and [Cityscapes](https://www.cityscapes-dataset.com/) domain, run the following script:
+```
+python test_prora.py \
+--name gta2ctylabv2 \
+--student_init simclr \
+--resume ./logs/gta2ctylabv2_entropy/from_gta5_to_cityscapes_on_deeplabv2_best_model.pkl
 ```
 
 ## Results
