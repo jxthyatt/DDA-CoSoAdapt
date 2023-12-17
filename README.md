@@ -107,7 +107,7 @@ python train_prora.py \
 --path_LP Pseudo/gta2ctylabv2_softadv \
 --resume_path ./logs/gta2ctylabv2_softadv/from_gta5_to_cityscapes_on_deeplabv2_best_model.pkl \
 --proto_pseudo 1 \
---distill 1 \
+--kl_weight 1 \
 --regular_w 10 \
 --finetune \
 --lr 1e-4 \
@@ -121,7 +121,7 @@ python train_prora.py \
 --path_LP Pseudo/gta2ctylabv2_denoise \
 --resume_path ./logs/gta2ctylabv2_denoise/from_gta5_to_cityscapes_on_deeplabv2_best_model.pkl \
 --proto_pseudo 1 \
---distill 1 \
+--kl_weight 0 \
 --finetune \
 --lr 6e-4 \
 --student_init simclr \
