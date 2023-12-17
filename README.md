@@ -132,7 +132,7 @@ python train_prora.py \
 To test ProRA between [GTA5](https://download.visinf.tu-darmstadt.de/data/from_games/) domain and [Cityscapes](https://www.cityscapes-dataset.com/) domain, run the following script:
 ```
 python test_prora.py \
---name gta2ctylabv2 \
+--name gta2ctylabv2_ft \
 --student_init simclr \
 --resume ./logs/gta2ctylabv2_entropy/from_gta5_to_cityscapes_on_deeplabv2_best_model.pkl
 ```
