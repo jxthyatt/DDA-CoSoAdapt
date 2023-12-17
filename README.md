@@ -142,7 +142,3 @@ python test_prora.py \
 <img src="assets/fig2.png" width="700px"/></p>
 <p align="center">
 <img src="assets/fig3.png" width="700px"/></p>
-
-## Acknowledgments
-
-Our implementation is mainly based on [DRIT](https://github.com/HsinYingLee/DRIT), [DRIT-HighResolution](https://github.com/hytseng0509/DRIT_hr) and [ProDA](https://github.com/microsoft/ProDA). We thank to their clean codebases.
