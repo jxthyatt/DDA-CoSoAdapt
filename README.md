@@ -14,6 +14,7 @@ Federated Hallucination Translation and Source-free Regularization Adaptation in
 
 ### Q&A 2: Why is the contribution significant?
 This work explores a fresh problem definition termed as DDA and builds a privacy-preserving adaptation framework dubbed as TEA, which handles domain shift for SFSU under data decentralization scenario. Specifically, a federated hallucination translation module called DisCoGAN is proposed to design a minimax game where image translator maximizes entropy of global model, while local classifier minimizes cross-entropy to ensure controllable hallucination. Besides, a source-free regularization adaptation module called ProRA is presented to align joint distribution in output space, comprised of soft adversarial learning, class structure clustering, and prototypical entropy minimization. Experiment results exhibit efficacy of our TEA that reaches 55.26% or 51.82% in mIoU on Foggy Cityscapes, and 25.85% or 24.03% in mIoU gain on Foggy Zurich, adapting from GTA5 or SYNTHIA.
+
 Whereas, the DisCoGAN hinges on available reference images. Inspired by multimodal foundation models, we will engage in text-guided image style transfer to manipulate arbitrary style translation (e.g., fog, rain, snow, night) using only text description. Another limitation is that ProRA suffers from conflict between sparsity and accuracy. Further work will contain refinement strategy to ameliorate implicit uncertainty in prototypical knowledge.
 
 ## Usage
