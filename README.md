@@ -1,4 +1,4 @@
-# CoSoAdapt
+# Translate-thEn-Adapt (TEA)
 Federated Hallucination Translation and Source-free Regularization Adaptation in Decentralized Domain Adaptation for Foggy Scene Understanding
 
 > **Abstract**:
